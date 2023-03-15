@@ -2,7 +2,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
-#include <cblas.h>
+#include <cblas.h> //You need to install cblas libary
 
 struct Data
 {
@@ -41,7 +41,7 @@ void Resize_Net(struct neu_net *, int);
 void Clean_Net(struct neu_net *);
 void Set_Data(struct Data *, int, int, int);
 void Get_Data(struct Data *);
-void Get_XY(float *, float *);
+void Get_XY(float * x, float * y);  // Do it by youself, load Input to x and Output to y
 void Choose_Data(struct Data *, struct Data *);
 void Clean_Data(struct Data *);
 void Run_Net_X(struct neu_net *, struct Data *);
@@ -56,8 +56,8 @@ void Load_Net(struct neu_net *);
 
 void main()
 {
-    const int num_of_lay = 4;
-    int neu_in_lay[] = {3, 3, 3, 3};
+    const int num_of_lay = 5;
+    int neu_in_lay[] = {784, 28, 28, 28, 10};
     const float learn_rate = 0.15;
     const float num_of_data = 10000;
     const int num_of_x = 100;
@@ -238,39 +238,10 @@ void Get_Data(struct Data *data)
 
 void Get_XY(float *x, float *y)
 {
-    x[0] = 20 * (rand() / (RAND_MAX + 1.0));
-    x[1] = 20 * (rand() / (RAND_MAX + 1.0));
-    x[2] = 20 * (rand() / (RAND_MAX + 1.0));
-    if (x[0] > x[1])
-    {
-        if (x[0] > x[2])
-        {
-            y[0] = 1;
-            y[1] = 0;
-            y[2] = 0;
-        }
-        else
-        {
-            y[0] = 0;
-            y[1] = 0;
-            y[2] = 1;
-        }
-    }
-    else
-    {
-        if (x[1] > x[2])
-        {
-            y[0] = 0;
-            y[1] = 1;
-            y[2] = 0;
-        }
-        else
-        {
-            y[0] = 0;
-            y[1] = 0;
-            y[2] = 1;
-        }
-    }
+    // Load input to x
+
+    // Load output distribution to y
+
 }
 
 void Choose_Data(struct Data *data, struct Data *datax)
