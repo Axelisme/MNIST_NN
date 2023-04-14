@@ -7,3 +7,6 @@ if you really want to run it, you should install Cblass libary and manually writ
 Requirement: `Cblas libary`, `your dataset`, `your loss function`, `patience` 
 
 Lack function: `GPU support`, `accuracy calculator`, `other type network`, `Optimizer`
+
+This repository has stopped development, for pytorch version, see 
+<https://github.com/Axelisme/NN_TEMPLATE.git>
